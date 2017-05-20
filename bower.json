@@ -1,0 +1,21 @@
+{
+  "name": "Checklist",
+  "description": "Weekend Project written in Node and React",
+  "main": "server.js",
+  "authors": [
+    "Yasin Yusuf <yaasiinyuusuf78@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/YasinYA/checklist",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "font-awesome": "fontawesome#^4.7.0"
+  }
+}
