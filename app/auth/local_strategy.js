@@ -11,7 +11,7 @@ module.exports = (passport) => {
     //passport needs to serialize and deserialize user session
 
     //serialize the user session
-    passport.serializeUser((user, done) => done(null, user._id););
+    passport.serializeUser((user, done) => done(null, user._id));
 
     //deserialize the user session
     passport.deserializeUser((id, done) => {
