@@ -9,6 +9,6 @@ app.use(express.static('./public/'))
     .use('/api/', api)
     .get('*', function(req, res) {
         res.sendView('index.html');
-    })
+    });
 
 module.exports = app;

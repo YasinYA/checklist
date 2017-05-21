@@ -6,6 +6,13 @@
   "repository": "git@github.com:YasinYA/checklist.git",
   "author": "Yasin Yusuf <yaasiinyuusuf78@gmail.com>",
   "license": "MIT",
+  "engines": {
+    "node": "6.9.1"
+  },
+  "scripts": {
+    "start-dev": "nodemon server.js --ignore ./pulic/js",
+    "webpack": "webpack --config webpack.config.js --watch"
+  },
   "devDependencies": {
     "babel-core": "^6.17.0",
     "babel-loader": "^6.2.0",
@@ -17,12 +24,18 @@
     "babel-preset-react": "^6.3.13",
     "babel-preset-react-hmre": "^1.1.1",
     "babel-preset-stage-0": "^6.3.13",
+    "eslint": "^4.0.0",
+    "eslint-config-airbnb": "15.0.1",
+    "eslint-plugin-import": "2.3.0",
+    "eslint-plugin-jsx-a11y": "5.0.3",
+    "eslint-plugin-react": "7.1.0",
     "webpack": "^2.5.1",
     "webpack-dev-middleware": "^1.10.2",
     "webpack-dev-server": "^2.4.5",
     "webpack-hot-middleware": "^2.18.0"
   },
   "dependencies": {
+    "axios": "^0.16.2",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.15.1",
     "connect-flash": "^0.1.1",
@@ -37,6 +50,6 @@
     "passport-local-mongoose": "^4.0.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
-    "react-hot-loader": "next"
+    "react-router-dom": "^4.1.1"
   }
 }

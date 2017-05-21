@@ -1,6 +1,6 @@
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcrypt-nodejs');
-Users = require('../models/users.js');
+const Users = require('../models/users.js');
 
 //compare the hashed password and the requested one
 function comparePasswords(user, password) {
@@ -18,25 +18,26 @@ module.exports = (passport) => {
         Users.findById(id, (err, user) => done(err, user));
     });
 
-    passport.use('login', new LocalStrategy({
-        passReqToCallback : true
+    passport.use('local', new LocalStrategy({
+        passReqToCallback: true
     }, (req, username, password, done) => {
-            // check if user with username exists
-            Users.findOne({ 'username' :  username }, (err, user) => {
-                if (err)
-                    return done(err);
+        // check if user with username exists
+        Users.findOne({ 'username': username }, (err, user) => {
+            if (err) {
+                return done(err);
+            }
 
-                if (!user) {
-                    console.log('User Not Found with username '+username);
-                    return done(null, false, req.flash('message', 'User Not found.'));
-                }
+            if (!user) {
+                console.log('User Not Found with username ' + username);
+                return done(null, false);
+            }
 
-                if (!comparePasswords(user, password)){
-                    console.log('Invalid Password');
-                    return done(null, false, req.flash('message', 'Invalid Password'));
-                }
+            if (!comparePasswords(user, password)) {
+                console.log('Invalid Password');
+                return done(null, false);
+            }
 
-                return done(null, user);
-            });
+            return done(null, user);
+        });
     }));
 };
